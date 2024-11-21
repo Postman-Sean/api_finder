@@ -13,11 +13,10 @@ The required python modules can be installed with the use of the [requirements.t
 
 ## Usage
 
-python(3) findit.py
+python(3) findit.py [-apikey POSTMAN_APIKEY]
 
-This script currently expects the user's Postman API key to be set as an enviroment variable name postman_apikey.  
+If the Postman API key is not provided via the commandline the script will attempt to pull the value from the user's environment via a variable named postman_apikey.
 
-Line 26 of findit.py can be updated as required to set the API key differently until the script is updated to allow for the key to be passed via the command line.
   
 
 ## License

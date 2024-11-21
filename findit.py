@@ -7,7 +7,7 @@
   Created On : Wed Nov 20 2024
   File : findit.py
 '''
-import sys, os, requests
+import sys, os, requests, argparse
 
 ###################################################################################
 # Test the version of python to make sure it's at least the version the script
@@ -18,12 +18,22 @@ else:
     pass
 
 
+####################################################################################
+# Create command line argument options
+parser = argparse.ArgumentParser()
+parser.add_argument('-apikey', "--apikey", help="Postman API Key")
+
 #----------------------------------------------------------------------#
 def main():
 
     baseURL = "https://api.getpostman.com"
 
-    apiKey = os.environ["postman_apikey"]
+    # See if an API key was passed via the command line
+    args = parser.parse_args()
+    if args.apikey is not None:
+       apiKey = args.apikey
+    else:
+        apiKey = os.environ["postman_apikey"]
 
     workspaces = get_all_workspaces(baseURL, apiKey)
 
