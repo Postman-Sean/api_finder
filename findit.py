@@ -1,4 +1,8 @@
 '''
+  Copyright 2024 Sean Geary
+  See LICENSE.txt for full license text
+  SPDX-License-Identifier: MIT
+  
   Author : Sean Geary (Postman)   
   Created On : Wed Nov 20 2024
   File : findit.py
