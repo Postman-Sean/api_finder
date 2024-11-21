@@ -23,8 +23,21 @@ def main():
 
     workspaces = get_all_workspaces(baseURL, apiKey)
 
+    if "error" in workspaces:
+       print("Unable to collect workspace information")
+       print("    %s" %workspaces["error"])
+       sys.exit()
+      
+    print("Workspace information collected")
+
     for workspace in workspaces["workspaces"]:
       apis_response = get_all_apis(baseURL, apiKey, workspace["id"])
+
+      if "error" in apis_response:
+        print("Unable to collect API information for workspace %s" %workspace["id"])
+        print("    %s" %apis_response["error"])
+        sys.exit()
+
 
       if len(apis_response["apis"]) > 0:
         print("Workspace: %s" %workspace["name"])
